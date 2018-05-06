@@ -37,7 +37,7 @@ class Model {
 
       this.action.idle.play();
 
-      this.obj.visible = false;
+      // this.obj.visible = false;
     });
   }
 

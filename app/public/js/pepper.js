@@ -55,9 +55,11 @@ THREE.PeppersGhostEffect = function ( renderer ) {
 
 		_cameraF.position.copy( _position );
 		_cameraF.quaternion.copy( _quaternion );
-		_cameraF.translateY( 1.8 );
-		_cameraF.translateZ( 3 );
-		_cameraF.lookAt( 0, 1.8, 0 );
+		// _cameraF.translateY( 2.5 );
+		// _cameraF.translateZ( 5 );
+		// _cameraF.lookAt( 0, 2.5, 0 );
+		_cameraF.position.set(0, 2, 7);
+		_cameraF.lookAt(0, 2, 0);
 		_cameraF.rotation.z += 180 * ( Math.PI / 180 ); // EDITED
 
 		// back
@@ -82,10 +84,8 @@ THREE.PeppersGhostEffect = function ( renderer ) {
 
 		_cameraL.position.copy( _position );
 		_cameraL.quaternion.copy( _quaternion );
-		_cameraL.translateX( -8 );
-		_cameraL.translateY( 1.4 );
-		_cameraL.translateZ( -3 );
-		_cameraL.lookAt(0, 1.4, -3);
+		_cameraL.position.set(-7, 2, 0);
+		_cameraL.lookAt(0, 2, 0);
 		_cameraL.rotation.x += 90 * ( Math.PI / 180 );
 
 		// right
@@ -97,10 +97,8 @@ THREE.PeppersGhostEffect = function ( renderer ) {
 
 		_cameraR.position.copy( _position );
 		_cameraR.quaternion.copy( _quaternion );
-		_cameraR.translateX( 8 );
-		_cameraR.translateY( 1.4 );
-		_cameraR.translateZ( -3 );
-		_cameraR.lookAt( 0, 1.4, -3 );
+		_cameraR.position.set(7, 2, 0);
+		_cameraR.lookAt( 0, 2, 0);
 		_cameraR.rotation.x += 90 * ( Math.PI / 180 );
 
 
@@ -133,8 +131,8 @@ THREE.PeppersGhostEffect = function ( renderer ) {
 
 		}
 
-		renderer.setScissor( _halfWidth - ( _width / 2 ) - _width, _height, _width, _height );
-		renderer.setViewport( _halfWidth - ( _width / 2 ) - _width, _height, _width, _height );
+		renderer.setScissor( _halfWidth - ( _width / 2 ) - _width - 20, _height + 20, _width - 20, _height + 20 );
+		renderer.setViewport( _halfWidth - ( _width / 2 ) - _width - 20, _height + 20, _width - 20, _height + 20 );
 
 		if ( scope.reflectFromAbove ) {
 
@@ -146,8 +144,8 @@ THREE.PeppersGhostEffect = function ( renderer ) {
 
 		}
 
-		renderer.setScissor( _halfWidth + ( _width / 2 ), _height, _width, _height );
-		renderer.setViewport( _halfWidth + ( _width / 2 ), _height, _width, _height );
+		renderer.setScissor( _halfWidth + ( _width / 2 ) + 20, _height + 20, _width + 20, _height + 20 );
+		renderer.setViewport( _halfWidth + ( _width / 2 ) + 20, _height + 20, _width + 20, _height + 20 );
 
 		if ( scope.reflectFromAbove ) {
 
