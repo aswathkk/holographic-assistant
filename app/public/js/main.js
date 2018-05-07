@@ -17,3 +17,5 @@ app.camera.lookAt(0, 1, 0);
   model.animate();
   app.render();
 })();
+
+const sock = new Sock('ws://localhost:8181/core');

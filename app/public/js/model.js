@@ -28,7 +28,8 @@ class Model {
       
       this.mixer = new THREE.AnimationMixer(this.obj);
 
-      this.action.walk = this.mixer.clipAction(geometry.animations[3]);
+      this.action.walk = this.mixer.clipAction(geometry.animations[4]);
+      this.action.think = this.mixer.clipAction(geometry.animations[3]);
       this.action.swipe = this.mixer.clipAction(geometry.animations[2]);
       this.action.idle = this.mixer.clipAction(geometry.animations[0]);
 
