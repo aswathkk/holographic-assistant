@@ -18,4 +18,4 @@ app.camera.lookAt(0, 1, 0);
   app.render();
 })();
 
-const sock = new Sock('ws://localhost:8181/core');
+const sock = new Sock('ws://localhost:8181/core', model);

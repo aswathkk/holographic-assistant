@@ -1,5 +1,5 @@
 class Sock {
-  constructor(url) {
+  constructor(url, model) {
     this.ws = new WebSocket(url);
     this.ws.onopen = this.onopen;
     this.ws.onmessage = this.onmessage;
@@ -12,16 +12,23 @@ class Sock {
   }
 
   onmessage(msg) {
-    let d = JSON.parse(msg);
+    // console.log(msg)
+    let d = JSON.parse(msg.data);
     console.log(d);
     // if(msg.data.type != 'enclosure.mouth.viseme') {
     // console.log(msg.data);
     // }
-    // 	if(d.type == 'recognizer_loop:record_begin')
+    	if(d.type == 'recognizer_loop:record_begin')
+        model.enter();
     // 		$disp.append('<br/>character enter into the view');
-    // 	if(d.type == 'recognizer_loop:record_end')
+    	if(d.type == 'enclosure.mouth.think')
+        model.fadeAction('idle', 'think');
+      if(d.type == 'enclosure.notify.no_internet' || d.type == 'mycroft.speech.recognition.unknown' || d.type == 'recognizer_loop:audio_output_end')
+        model.leave();
+      //'mycroft.speech.recognition.unknown'
     // 		$disp.append('<br/>character thinks');
-    // 	if(d.type == 'enclosure.mouth.viseme')
+    	// if(d.type == 'enclosure.mouth.viseme')
+        // modelfadeAction('think', 'swipe')
     // 		$disp.append('<br/>character speaks');
     // 	if(d.type == 'recognizer_loop:audio_output_end')
     // 		$disp.append('<br/>character hides from the view');

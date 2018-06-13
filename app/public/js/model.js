@@ -16,7 +16,7 @@ class Model {
       materials.forEach(function (material) {
           material.skinning = true;
           material.morphTargets = true;
-          material.emissive = {r: 1, g:1, b:1};
+          material.emissive = {r: 1, g:0.45, b:0};
           material.emissiveIntensity = 0.5;
       });
 
@@ -38,12 +38,12 @@ class Model {
 
       this.action.idle.play();
 
-      // this.obj.visible = false;
+      this.obj.visible = false;
     });
   }
 
   enter() {
-    this.obj.position.z = -5;
+    this.obj.position.z = -2;
     this.obj.visible = true;
     this.state.entering = true;
     this.fadeAction('idle', 'walk');
